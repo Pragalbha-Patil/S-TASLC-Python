@@ -104,7 +104,7 @@ def func():
 #func()
 while 1:
   image   = "logo.jpg"
-  msg="TASLC - Speech to American Sign Language Converter"
+  msg="S - TASLC - Speech to American Sign Language Converter"
   choices = ["Conversation mode","Close","Recorded Audio (Coming soon)"]
   reply   = buttonbox(msg,image=image,choices=choices)
   if reply ==choices[0]:
