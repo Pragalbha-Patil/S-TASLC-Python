@@ -35,7 +35,7 @@ def func():
                                     a= a.replace(c,"")
                                     
                                 if(a.lower()=='goodbye'):
-                                        print("oops!Time To say good bye")
+                                        print("Gotta go!")
                                         break
                                 
                                 elif(a.lower() in taslc_gif):
@@ -105,7 +105,7 @@ def func():
 while 1:
   image   = "logo.jpg"
   msg="TASLC - Speech to American Sign Language Converter"
-  choices = ["Live Voice","Close","Recorded Audio"]
+  choices = ["Conversation mode","Close","Recorded Audio (Coming soon)"]
   reply   = buttonbox(msg,image=image,choices=choices)
   if reply ==choices[0]:
         func()
