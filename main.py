@@ -1,3 +1,6 @@
+from threading import Thread
+# import pygame
+# import speake3
 import speech_recognition as sr
 import numpy as np
 import matplotlib.pyplot as plt
@@ -8,6 +11,11 @@ from PIL import Image, ImageTk
 from itertools import count
 import tkinter as tk
 import string
+
+def play_music():
+    os.system("gnome-terminal -e 'play bg.mp3'")
+
+
 #import selecting for recorded voice
 
 # obtain audio from the microphone
@@ -17,25 +25,31 @@ def func():
         
         
         arr=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r',
-        's','t','u','v','w','x','y','z']
+        's','t','u','v','w','x','y','z',' ']
         with sr.Microphone() as source:
 
                 r.adjust_for_ambient_noise(source) 
                 i=0
+                # thread = Thread(target = play_music)
+                # thread.start()
+                # thread.join()
                 while True:
-                        print('Say something')
+                        print('Listening...')
                         audio = r.listen(source)
 
                                                         # recognize speech using Sphinx
                         try:
                                 a=r.recognize_google(audio)
-                                print("you said " + a.lower())
+                                # mixer.init()
+                                # mixer.music.load("bg.mp3")
+                                # mixer.music.play()
+                                print("You said:  " + a.lower())
                                 
                                 for c in string.punctuation:
-                                    a= a.replace(c,"")
+                                    a = a.replace(c,"")
                                     
                                 if(a.lower()=='goodbye'):
-                                        print("Gotta go!")
+                                        print("Good bye!")
                                         break
                                 
                                 elif(a.lower() in taslc_gif):
@@ -82,25 +96,36 @@ def func():
                                     lbl.load(r'/home/psp/Desktop/projects/TASLC/TASLC_Gifs/{0}.gif'.format(a.lower()))
                                     root.mainloop()
                                 else:
-
+                                    # os.system("espeak "+a)
+                                    # print(a)
+                                    # print(len(a))
+                                    # break
                                     for i in range(len(a)):
                                                     #a[i]=a[i].lower()
                                                     if(a[i] in arr):
-                                                            print(a[i])
-                                                            ImageAddress = 'letters_asl/'+a[i]+'.jpg'
-                                                            ImageItself = Image.open(ImageAddress)
-                                                            ImageNumpyFormat = np.asarray(ImageItself)
-                                                            plt.imshow(ImageNumpyFormat)
-                                                            plt.draw()
-                                                            plt.pause(0.8) # pause how many seconds
-                                                            #plt.close()
+                                                            # print(a[i])
+                                                            if(a[i] == ' '):   
+                                                                ImageAddress = 'letters_asl/ .jpg'
+                                                                ImageItself = Image.open(ImageAddress)
+                                                                ImageNumpyFormat = np.asarray(ImageItself)
+                                                                plt.imshow(ImageNumpyFormat)
+                                                                plt.draw()
+                                                                plt.pause(0.8) # pause how many seconds
+                                                                #plt.close()
+                                                            else:
+                                                                ImageAddress = 'letters_asl/'+a[i]+'.jpg'
+                                                                ImageItself = Image.open(ImageAddress)
+                                                                ImageNumpyFormat = np.asarray(ImageItself)
+                                                                plt.imshow(ImageNumpyFormat)
+                                                                plt.draw()
+                                                                plt.pause(0.8) # pause how many seconds
+                                                                #plt.close()
                                                     else:
                                                             continue
 
                         except:
                                print("Could not listen")
                         plt.close()
-
 #func()
 while 1:
   image   = "logo.jpg"
