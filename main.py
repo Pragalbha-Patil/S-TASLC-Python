@@ -86,8 +86,8 @@ def func():
                                     for i in range(len(a)):
                                                     #a[i]=a[i].lower()
                                                     if(a[i] in arr):
-                                            
-                                                            ImageAddress = 'letters/'+a[i]+'.jpg'
+                                                            print(a[i])
+                                                            ImageAddress = 'letters_asl/'+a[i]+'.jpg'
                                                             ImageItself = Image.open(ImageAddress)
                                                             ImageNumpyFormat = np.asarray(ImageItself)
                                                             plt.imshow(ImageNumpyFormat)
@@ -112,4 +112,4 @@ while 1:
   if reply == choices[1]:
         quit()
   if reply==choices[2]:
-        os.system("selecting.py") # make a recorded voice playing module. PENDING.
+        os.system("recorded.py") # make a recorded voice playing module. PENDING.
