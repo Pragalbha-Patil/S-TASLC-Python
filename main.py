@@ -26,7 +26,7 @@ def func():
         
         arr=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r',
         's','t','u','v','w','x','y','z',' ']
-        with sr.Microphone(device_index=0) as source:
+        with sr.Microphone() as source:
 
                 r.adjust_for_ambient_noise(source) 
                 i=0
@@ -124,17 +124,18 @@ def func():
                                                             continue
 
                         except:
-                               print("Could not listen")
+                               print("Could not listen probably audio is too low to listen")
                         plt.close()
 #func()
 while 1:
   image   = "logo.jpg"
   msg="S - TASLC - Speech to American Sign Language Converter"
-  choices = ["Conversation mode","Close","Recorded Audio (Coming soon)"]
+  choices = ["Live Conversation mode","Close","Convert Recorded Voice"]
   reply   = buttonbox(msg,image=image,choices=choices)
   if reply ==choices[0]:
         func()
   if reply == choices[1]:
         quit()
   if reply==choices[2]:
-        os.system("recorded.py") # make a recorded voice playing module. PENDING.
+        os.system("python3 recorded.py") # make a recorded voice playing module. PENDING.
+        break
