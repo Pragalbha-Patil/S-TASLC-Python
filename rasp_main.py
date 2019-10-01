@@ -1,5 +1,3 @@
-from tkinter.filedialog import askopenfilename
-import librosa
 import speech_recognition as sr
 import numpy as np
 import matplotlib.pyplot as plt
@@ -14,14 +12,19 @@ import paramiko
 import time
 
 try:
+    os.system("rm out.wav && clear")
+    ip = input("Enter the ip to recieve audio from: ")
+    user_name = input("Enter username: ")
+    pass_word = input("Enter password: ")
     print("Connecting to host..")
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    client.connect('192.168.0.100', username='psp', password='admin')
+    client.connect(ip, username=user_name, password=pass_word)
     print("Connection succeeded, recording now.. Please speak..")
+    client.exec_command('rm out.wav')
     client.exec_command('python -m SimpleHTTPServer 8888')
     client.exec_command('arecord -d 5 -f cd -t wav out.wav')
-    time.sleep(5)    
+    time.sleep(6)
 except:
     print("Couldn't connect to recieve audio, please make sure the host is up.")
     quit()
@@ -35,7 +38,10 @@ r = sr.Recognizer()
 url = 'http://192.168.0.100:8888/out.wav' #make sure you 've recorded and kept the audio 
 print("Downloading...")
 audio = wget.download(url)
-client.close()
+if(audio):
+	client.close()
+else:
+	audio = wget.download(url)
 if audio.lower().endswith(('.pcm','.wav')):
     audio_file = sr.AudioFile(audio)
     with audio_file as source:
