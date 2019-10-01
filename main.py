@@ -130,7 +130,7 @@ def func():
 while 1:
   image   = "logo.jpg"
   msg="S - TASLC - Speech to American Sign Language Converter"
-  choices = ["Live Conversation mode","Close","Convert Recorded Voice"]
+  choices = ["Live Conversation mode","Close","Convert Recorded Voice", "Raspberry pi mode"]
   reply   = buttonbox(msg,image=image,choices=choices)
   if reply ==choices[0]:
         func()
@@ -139,3 +139,6 @@ while 1:
   if reply==choices[2]:
         os.system("python3 recorded.py") # make a recorded voice playing module. PENDING.
         break
+  if reply==choices[3]:
+      os.system("python3 rasp_main.py")
+      quit()
