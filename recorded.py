@@ -9,6 +9,7 @@ import os
 from PIL import Image, ImageTk
 from itertools import count
 import string
+import platform
 
 arr=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r',
         's','t','u','v','w','x','y','z',' ']
@@ -48,6 +49,9 @@ if file.lower().endswith(('.pcm','.wav')):
                                                             continue
     plt.close()
     print("Task completed, calling main program..")
-    os.system("python3 main.py")
+    if(platform.system() == 'Windows'):
+        os.system("python main.py")
+    else:
+        os.system("python3 main.py")
 else:
     print("Wrong file, please choose a mp3 or wav file!")

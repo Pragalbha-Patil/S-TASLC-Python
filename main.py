@@ -11,6 +11,7 @@ from PIL import Image, ImageTk
 from itertools import count
 import tkinter as tk
 import string
+import platform
 
 def play_music():
     os.system("gnome-terminal -e 'play bg.mp3'")
@@ -137,8 +138,14 @@ while 1:
   if reply == choices[1]:
         quit()
   if reply==choices[2]:
-        os.system("python3 recorded.py") # make a recorded voice playing module. PENDING.
+        if(platform.system() == 'Windows'):
+            os.system("python recorded.py")
+        else:
+            os.system("python3 recorded.py")
         break
   if reply==choices[3]:
-      os.system("python3 rasp_main.py")
+      if(platform.system() == 'Windows'):  
+        os.system("python rasp_main.py")
+      else:
+          os.system("python3 rasp_main.py")
       quit()

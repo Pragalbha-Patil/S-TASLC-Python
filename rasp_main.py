@@ -11,13 +11,14 @@ import wget
 import paramiko
 import time
 from getpass import getpass
+import platform
 
 arr=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r',
         's','t','u','v','w','x','y','z',' ']
 r = sr.Recognizer()
 
 try:
-    os.system("rm out.wav && clear")
+    os.system("rm out.wav && clear || del out.wav && del output.wav && cls")
     ip = input("Enter the ip to recieve audio from: ")
     user_name = input("Enter username: ")
     # pass_word = input("Enter password: ")
@@ -28,11 +29,13 @@ try:
     client.connect(ip, username=user_name, password=pass_word)
     print("Connection succeeded..")
     time.sleep(2)
-    client.exec_command('rm out.wav')
-    client.exec_command('python -m SimpleHTTPServer 8888')
+    client.exec_command('python -m http.server 8888 || python -m SimpleHTTPServer 8888')
+    client.exec_command('del output.wav && del out.wav || rm out.wav')
     print("Please speak now..")
-    client.exec_command('arecord -d 5 -f cd -t wav out.wav')
+    client.exec_command('fmedia --record --dev-capture=1 -o output.wav || arecord -d 5 -f cd -t wav out.wav') # make sure fmedia is installed.
     time.sleep(6)
+    client.exec_command('taskkill /IM fmedia.exe /F && ffmpeg -i output.wav out.wav') # This'll stop the recording, ONLY WINDOWS.
+    time.sleep(3)
 except:
     print("Something went wrong, please make sure the host is up.")
     quit()
@@ -80,6 +83,9 @@ if audio.lower().endswith(('.pcm','.wav')):
                                                             continue
     plt.close()
     print("Task completed, calling main program..")
-    os.system("python3 main.py")
+    if(platform.system() == 'Windows'):
+        os.system("python main.py")
+    else:
+        os.system("python3 main.py")
 else:
     print("Wrong file, please record a wav file!")
