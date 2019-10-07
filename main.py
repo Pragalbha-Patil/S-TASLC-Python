@@ -131,7 +131,7 @@ def func():
 while 1:
   image   = "logo.jpg"
   msg="S - TASLC - Speech to American Sign Language Converter"
-  choices = ["Live Conversation mode","Close","Convert Recorded Voice", "Raspberry pi mode"]
+  choices = ["Laptop Live Conversation mode","Close","Convert Recorded Voice", "RAS-PI Live Conversation mode"]
   reply   = buttonbox(msg,image=image,choices=choices)
   if reply ==choices[0]:
         func()

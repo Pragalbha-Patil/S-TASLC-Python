@@ -40,7 +40,10 @@ except:
     print("Something went wrong, please make sure the host is up.")
     quit()
 
-url = 'http://192.168.0.100:8888/out.wav' # make sure you 've recorded and kept the audio 
+url_init = 'http://'+ip+':8888/out.wav'
+print('The downloading url is: ' +url_init)
+# url = 'http://192.168.0.100:8888/out.wav' # make sure you 've recorded and kept the audio 
+url = url_init
 print("Downloading...")
 audio = wget.download(url)
 if(audio):
@@ -69,7 +72,7 @@ if audio.lower().endswith(('.pcm','.wav')):
                                                                 ImageNumpyFormat = np.asarray(ImageItself)
                                                                 plt.imshow(ImageNumpyFormat)
                                                                 plt.draw()
-                                                                plt.pause(0.8) # pause how many seconds
+                                                                plt.pause(0.2) # pause how many seconds
                                                                 #plt.close()
                                                             else:
                                                                 ImageAddress = 'letters_asl/'+audio[i]+'.jpg'
@@ -77,7 +80,7 @@ if audio.lower().endswith(('.pcm','.wav')):
                                                                 ImageNumpyFormat = np.asarray(ImageItself)
                                                                 plt.imshow(ImageNumpyFormat)
                                                                 plt.draw()
-                                                                plt.pause(0.8) # pause how many seconds
+                                                                plt.pause(0.5) # pause how many seconds
                                                                 #plt.close()
                                                     else:
                                                             continue
