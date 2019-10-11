@@ -34,14 +34,14 @@ def func():
                 'shall we go together tommorow', 'sign language interpreter', 'sit down', 'stand up', 'take care', 'there was traffic jam', 'wait I am thinking',
                 'what are you doing', 'what is the problem', 'what is todays date', 'what is your age', 'what is your father do', 'what is your job',
                 'what is your mobile number', 'what is your name', 'whats up', 'when is your interview', 'when we will go', 'where do you stay',
-                'where is the bathroom', 'where is the police station', 'you are wrong','address','agra','ahemdabad', 'all', 'april', 'assam', 'august', 'australia', 'badoda', 'banana', 'banaras', 'banglore',
+                'where is the bathroom', 'where is the police station', 'you are wrong','address','agra','how are you','ahemdabad', 'all', 'april', 'assam', 'august', 'australia', 'badoda', 'banana', 'banaras', 'banglore',
 'bihar','bihar','bridge','cat', 'chandigarh', 'chennai', 'christmas', 'church', 'clinic', 'coconut', 'crocodile','dasara',
 'deaf', 'december', 'deer', 'delhi', 'dollar', 'duck', 'febuary', 'friday', 'fruits', 'glass', 'grapes', 'gujrat', 'hello',
 'hindu', 'hyderabad', 'india', 'january', 'jesus', 'job', 'july', 'july', 'karnataka', 'kerala', 'krishna', 'litre', 'mango',
 'may', 'mile', 'monday', 'mumbai', 'museum', 'muslim', 'nagpur', 'october', 'orange', 'pakistan', 'pass', 'police station',
 'post office', 'pune', 'punjab', 'rajasthan', 'ram', 'restaurant', 'saturday', 'september', 'shop', 'sleep', 'southafrica',
 'story', 'sunday', 'tamil nadu', 'temperature', 'temple', 'thursday', 'toilet', 'tomato', 'town', 'tuesday', 'usa', 'village',
-'voice', 'wednesday', 'weight']
+'voice', 'wednesday', 'weight','water','are you all right']
         
         
         arr=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r',
@@ -113,7 +113,7 @@ def func():
                                     root = tk.Tk()
                                     lbl = ImageLabel(root)
                                     lbl.pack()
-                                    lbl.load(r'/home/psp/Desktop/projects/TASLC/TASLC_Gifs/{0}.gif'.format(a.lower()))
+                                    lbl.load(r'/home/psp/Desktop/projects/S-TASLC-Python/TASLC_GIFS/{0}.gif'.format(a.lower()))
                                     root.mainloop()
                                 else:
                                     # os.system("espeak "+a)
