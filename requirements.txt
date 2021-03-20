@@ -29,7 +29,7 @@ idna==2.6
 image==1.5.27
 imagesize==1.0.0
 importlib-metadata==0.20
-Jinja2==2.10
+Jinja2==2.11.3
 joblib==0.13.2
 keyring==12.2.1
 keyrings.alt==3.0
