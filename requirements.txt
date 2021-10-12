@@ -45,7 +45,7 @@ nltk==3.4.5
 numba==0.45.1
 numpy==1.17.0
 onboard==1.4.1
-opencv-python==4.1.0.25
+opencv-python==4.1.1.26
 packaging==17.1
 paramiko==2.6.0
 persepolis==3.0.1
