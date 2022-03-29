@@ -47,7 +47,7 @@ numpy==1.17.0
 onboard==1.4.1
 opencv-python==4.1.0.25
 packaging==17.1
-paramiko==2.6.0
+paramiko==2.10.1
 persepolis==3.0.1
 pexpect==4.2.1
 Pillow==5.1.0
