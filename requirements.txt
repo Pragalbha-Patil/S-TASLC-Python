@@ -71,7 +71,7 @@ python-decouple==3.1
 pyttsx3==2.71
 pytz==2019.1
 pyxdg==0.25
-reportlab==3.4.0
+reportlab==3.5.55
 requests==2.18.4
 resampy==0.2.2
 roman==2.0.0
