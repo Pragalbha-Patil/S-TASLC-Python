@@ -30,7 +30,7 @@ image==1.5.27
 imagesize==1.0.0
 importlib-metadata==0.20
 Jinja2==2.10
-joblib==0.13.2
+joblib==1.2.0
 keyring==12.2.1
 keyrings.alt==3.0
 kiwisolver==1.1.0
