@@ -8,7 +8,7 @@ bcrypt==3.1.7
 beautifulsoup4==4.7.1
 billiard==3.6.1.0
 celery==4.3.0
-certifi==2018.1.18
+certifi==2022.12.7
 cffi==1.12.3
 chardet==3.0.4
 coloredlogs==10.0
